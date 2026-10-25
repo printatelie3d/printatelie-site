@@ -1,0 +1,32 @@
+SITE PRINT ATELIÊ 3D — COMO PUBLICAR (GitHub Pages, grátis, com HTTPS)
+
+1) GITHUB
+   - Crie uma conta em github.com (vocês mesmos criam; eu não posso criar conta).
+   - Clique em "New repository". Nome: printatelie-site. Marque "Public". Create.
+   - Na página do repositório: "uploading an existing file" e ARRASTE todo o
+     conteúdo desta pasta (index.html, produtos.js, favicon.png, CNAME e a pasta img).
+     Clique em "Commit changes".
+   - Settings > Pages > Source: "Deploy from a branch" > Branch: main / (root) > Save.
+   - Em "Custom domain" coloque: printatelie.com.br > Save.
+
+2) REGISTRO.BR (onde está o domínio)
+   - Entre em registro.br > printatelie.com.br > DNS > "Editar zona".
+   - Adicione 4 entradas tipo A (nome vazio / @):
+       185.199.108.153
+       185.199.109.153
+       185.199.110.153
+       185.199.111.153
+   - Adicione 1 entrada tipo CNAME: nome "www" > valor "SEU-USUARIO.github.io"
+   - Salve. Pode levar de 1 a 24 h para propagar.
+
+3) HTTPS
+   - Volte em GitHub > Settings > Pages e marque "Enforce HTTPS"
+     (aparece depois que o domínio propagar).
+
+COMO ATUALIZAR PRODUTOS
+   - Abra produtos.js no GitHub (lápis = editar).
+   - Para ligar o botão "Comprar no Mercado Livre", cole o link do anúncio em
+     mercadolivre: "https://...". O mesmo vale para shopee e tiktok.
+     Link vazio "" = o botão não aparece.
+   - Fotos novas: envie para a pasta img/ e coloque o nome em fotos: [...].
+   - Commit changes. O site atualiza em ~1 minuto.

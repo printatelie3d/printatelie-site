@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Print Ateliê 3D · Catálogo</title>
+<meta name="description" content="Peças impressas em 3D, feitas camada por camada: decoração, cozinha, esporte e personalizados. Compre online ou encomende pelo WhatsApp.">
+<meta property="og:title" content="Print Ateliê 3D · Catálogo">
+<meta property="og:description" content="Peças impressas em 3D e personalizadas. Compre online ou encomende pelo WhatsApp.">
+<meta property="og:image" content="img/icone.png">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="img/icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graf:#1E2230; --graf2:#2A2F40; --lar:#FF6A2B; --ama:#FFB627; --creme:#FFF6EC;
+    --texto:#1E2230; --suave:#6B6F7C; --linha:#EADFD2; --branco:#fff;
+    --ml:#FFE600; --shopee:#EE4D2D; --tiktok:#111; --zap:#1FAF54;
+    --raio:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Poppins,system-ui,sans-serif;background:var(--creme);color:var(--texto);line-height:1.5}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .faixas{display:grid;gap:5px}
+  .faixas i{display:block;height:7px;border-radius:9px}
+  .faixas i:nth-child(1){background:#FF6A2B}.faixas i:nth-child(2){background:#FF7F2E}
+  .faixas i:nth-child(3){background:#FF9530}.faixas i:nth-child(4){background:#FFA62D}.faixas i:nth-child(5){background:#FFB627}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+
+  /* topo */
+  header{background:var(--graf);color:var(--creme);position:sticky;top:0;z-index:20}
+  .topo{display:flex;align-items:center;justify-content:space-between;gap:12px;height:68px}
+  .topo img{height:40px;width:auto}
+  .topo a.zap{background:var(--zap);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:9px 16px;border-radius:999px;white-space:nowrap}
+
+  /* hero */
+  .hero{background:var(--graf);color:var(--creme);padding:40px 0 0;overflow:hidden}
+  .hero h1{font-family:Pacifico,cursive;font-weight:400;color:var(--ama);font-size:clamp(34px,6vw,56px);line-height:1.2}
+  .hero p{max-width:560px;margin:14px 0 26px;font-size:17px;color:#E9E3DA}
+  .hero .acoes{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;font:600 15px Poppins,sans-serif;padding:12px 20px;border-radius:999px;text-decoration:none;transition:transform .15s,filter .15s}
+  .btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
+  .btn-lar{background:var(--lar);color:#fff}
+  .btn-contorno{background:transparent;color:var(--creme);box-shadow:inset 0 0 0 2px #ffffff40}
+  .hero .faixas{margin:0 -16px}
+
+  /* filtros */
+  .filtros{display:flex;gap:8px;overflow-x:auto;padding:26px 0 8px;scrollbar-width:none}
+  .filtros::-webkit-scrollbar{display:none}
+  .chip{flex:0 0 auto;border:2px solid var(--linha);background:#fff;color:var(--texto);font:500 14px Poppins,sans-serif;padding:8px 16px;border-radius:999px;cursor:pointer}
+  .chip.ativo{background:var(--graf);border-color:var(--graf);color:#fff}
+
+  /* grade */
+  .grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;padding:16px 0 56px}
+  .card{background:#fff;border-radius:var(--raio);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 0 var(--linha),0 10px 30px -18px #1e223040}
+  .foto{position:relative;aspect-ratio:1/1;background:var(--graf2)}
+  .foto img{width:100%;height:100%;object-fit:cover}
+  .foto .tag{position:absolute;top:12px;left:12px;background:var(--lar);color:#fff;font-weight:600;font-size:12px;padding:4px 10px;border-radius:999px}
+  .foto .pontos{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:6px}
+  .foto .pontos button{width:9px;height:9px;border-radius:50%;border:0;background:#ffffff80;cursor:pointer;padding:0}
+  .foto .pontos button.on{background:#fff;width:22px;border-radius:9px}
+  .sem-foto{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#ffffffb3;font-size:14px;padding:24px}
+  .sem-foto .faixas{width:60%}
+  .sem-foto b{font-family:Pacifico,cursive;font-weight:400;font-size:26px;color:var(--ama)}
+  .info{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .cat{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--lar)}
+  .info h3{font-size:18px;line-height:1.3}
+  .info p{font-size:14px;color:var(--suave)}
+  .preco{font-size:20px;font-weight:700;margin-top:auto;padding-top:6px}
+  .status{font-size:12px;font-weight:600;color:var(--suave)}
+  .botoes{display:grid;gap:8px;margin-top:6px}
+  .botoes .btn{width:100%;font-size:14px;padding:11px 14px}
+  .b-ml{background:var(--ml);color:#2D3277}
+  .b-shopee{background:var(--shopee);color:#fff}
+  .b-tiktok{background:var(--tiktok);color:#fff}
+  .b-zap{background:var(--zap);color:#fff}
+  .b-zap.sec{background:#fff;color:var(--zap);box-shadow:inset 0 0 0 2px var(--zap)}
+
+  /* como funciona */
+  .bloco{background:#fff;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha);padding:48px 0}
+  .bloco h2{font-family:Pacifico,cursive;font-weight:400;color:var(--lar);font-size:clamp(28px,4.5vw,38px);margin-bottom:22px}
+  .passos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .passo{background:var(--creme);border-radius:var(--raio);padding:20px}
+  .passo span{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--lar);color:#fff;font-weight:700;margin-bottom:10px}
+  .passo h3{font-size:17px;margin-bottom:4px}
+  .passo p{font-size:14px;color:var(--suave)}
+
+  .ideia{background:var(--graf);color:var(--creme);border-radius:24px;padding:32px 24px;margin:48px auto;display:grid;gap:14px;text-align:center;justify-items:center}
+  .ideia h2{font-family:Pacifico,cursive;font-weight:400;color:var(--ama);font-size:clamp(28px,4.5vw,40px)}
+  .ideia p{max-width:520px;color:#E9E3DA}
+
+  footer{background:var(--graf);color:#C9C4BC;font-size:14px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center;padding:26px 16px}
+  footer img{height:32px;width:auto}
+  footer a{color:#fff;text-decoration:none;font-weight:500}
+  .vazio{grid-column:1/-1;text-align:center;color:var(--suave);padding:40px 0}
+  @media (max-width:520px){ .topo img{height:32px} .topo a.zap{padding:8px 12px;font-size:13px} .hero{padding-top:28px} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap topo">
+    <a href="#"><img src="img/logo.png" alt="Print Ateliê 3D"></a>
+    <a class="zap" id="zapTopo" href="#" target="_blank" rel="noopener">Fale no WhatsApp</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Feito camada por camada</h1>
+    <p>Peças impressas em 3D para decorar, organizar e presentear. Escolha no catálogo e compre online, ou encomende do seu jeito: na cor que quiser e com o seu nome.</p>
+    <div class="acoes">
+      <a class="btn btn-lar" href="#catalogo">Ver catálogo</a>
+      <a class="btn btn-contorno" id="zapHero" href="#" target="_blank" rel="noopener">Pedir um personalizado</a>
+    </div>
+    <div class="faixas"><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+</section>
+
+<main class="wrap" id="catalogo">
+  <div class="filtros" id="filtros"></div>
+  <div class="grade" id="grade"></div>
+</main>
+
+<section class="bloco">
+  <div class="wrap">
+    <h2>Como encomendar</h2>
+    <div class="passos">
+      <div class="passo"><span>1</span><h3>Escolha</h3><p>Veja os modelos aqui no catálogo e no nosso Instagram. Gostou? Clique em Encomendar.</p></div>
+      <div class="passo"><span>2</span><h3>Personalize</h3><p>Pelo WhatsApp, diga a quantidade, a cor e, se quiser, o nome ou a logo.</p></div>
+      <div class="passo"><span>3</span><h3>Receba</h3><p>A gente confirma valor e prazo, você paga por Pix e a peça vai até você.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="ideia">
+    <h2>Tem uma ideia?</h2>
+    <p>Brindes para empresa, lembrancinhas, peças com a sua marca, presentes com nome. Se cabe na impressora, a gente cria pra você.</p>
+    <a class="btn btn-lar" id="zapIdeia" href="#" target="_blank" rel="noopener">Contar minha ideia</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo.png" alt="Print Ateliê 3D">
+    <div>
+      <a id="insta" href="#" target="_blank" rel="noopener">@printatelie3d</a> ·
+      <a id="zapRodape" href="#" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <div>© <span id="ano"></span> Print Ateliê 3D</div>
+  </div>
+</footer>
+
+<script src="produtos.js"></script>
+<script>
+(function(){
+  var P = window.PRODUTOS || [], NUM = window.WHATSAPP, IG = window.INSTAGRAM;
+  function zap(msg){ return "https://wa.me/" + NUM + "?text=" + encodeURIComponent(msg); }
+  function esc(s){ return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
+
+  var geral = zap("Olá! Vim pelo site da Print Ateliê 3D e quero fazer um pedido.");
+  ["zapTopo","zapRodape"].forEach(function(id){ document.getElementById(id).href = geral; });
+  document.getElementById("zapHero").href = zap("Olá! Quero encomendar uma peça personalizada.");
+  document.getElementById("zapIdeia").href = zap("Olá! Tenho uma ideia de peça para imprimir em 3D:");
+  document.getElementById("insta").href = "https://instagram.com/" + IG;
+  document.getElementById("ano").textContent = new Date().getFullYear();
+
+  var STATUS = { disponivel:"Pronta entrega", encomenda:"Sob encomenda", breve:"Em breve" };
+  var cats = ["Todos"]; P.forEach(function(p){ if(cats.indexOf(p.categoria) < 0) cats.push(p.categoria); });
+  var atual = "Todos";
+
+  function card(p){
+    var f = p.fotos || [], L = p.links || {};
+    var foto = f.length
+      ? '<img src="'+esc(f[0])+'" alt="'+esc(p.nome)+'" loading="lazy">' +
+        (f.length > 1 ? '<div class="pontos">' + f.map(function(_,i){ return '<button aria-label="Foto '+(i+1)+'" data-i="'+i+'"'+(i?'':' class="on"')+'></button>'; }).join("") + '</div>' : "")
+      : '<div class="sem-foto"><div class="faixas"><i></i><i></i><i></i><i></i><i></i></div><b>Foto em breve</b><span>Peça feita sob encomenda</span></div>';
+    var bt = "";
+    if (L.mercadolivre) bt += '<a class="btn b-ml" href="'+esc(L.mercadolivre)+'" target="_blank" rel="noopener">Comprar no Mercado Livre</a>';
+    if (L.shopee)       bt += '<a class="btn b-shopee" href="'+esc(L.shopee)+'" target="_blank" rel="noopener">Comprar na Shopee</a>';
+    if (L.tiktok)       bt += '<a class="btn b-tiktok" href="'+esc(L.tiktok)+'" target="_blank" rel="noopener">Comprar no TikTok Shop</a>';
+    var temLoja = L.mercadolivre || L.shopee || L.tiktok;
+    var txt = p.status === "breve" ? "Avise-me quando chegar" : (temLoja ? "Encomendar personalizado" : "Encomendar pelo WhatsApp");
+    var msg = p.status === "breve" ? "Olá! Quero ser avisado(a) quando o " + p.nome + " estiver disponível."
+                                   : "Olá! Tenho interesse em: " + p.nome + " (" + p.preco + "). Pode me passar mais informações?";
+    bt += '<a class="btn b-zap'+(temLoja?' sec':'')+'" href="'+zap(msg)+'" target="_blank" rel="noopener">'+txt+'</a>';
+    return '<article class="card" data-cat="'+esc(p.categoria)+'">' +
+      '<div class="foto" data-fotos=\''+esc(JSON.stringify(f))+'\'>' + foto + (p.etiqueta ? '<span class="tag">'+esc(p.etiqueta)+'</span>' : "") + '</div>' +
+      '<div class="info"><span class="cat">'+esc(p.categoria)+'</span><h3>'+esc(p.nome)+'</h3><p>'+esc(p.descricao)+'</p>' +
+      '<div class="preco">'+esc(p.preco)+'</div><span class="status">'+(STATUS[p.status]||"")+'</span>' +
+      '<div class="botoes">'+bt+'</div></div></article>';
+  }
+
+  function render(){
+    var lista = P.filter(function(p){ return atual === "Todos" || p.categoria === atual; })
+                 .sort(function(a,b){ return (b.destaque?1:0) - (a.destaque?1:0); });
+    document.getElementById("grade").innerHTML = lista.length ? lista.map(card).join("") : '<div class="vazio">Nenhum produto nesta categoria ainda.</div>';
+    document.getElementById("filtros").innerHTML = cats.map(function(c){ return '<button class="chip'+(c===atual?' ativo':'')+'" data-c="'+esc(c)+'">'+esc(c)+'</button>'; }).join("");
+  }
+  document.getElementById("filtros").addEventListener("click", function(e){ var b = e.target.closest(".chip"); if(!b) return; atual = b.getAttribute("data-c"); render(); });
+  document.getElementById("grade").addEventListener("click", function(e){
+    var b = e.target.closest(".pontos button"); if(!b) return;
+    var box = b.closest(".foto"), f = JSON.parse(box.getAttribute("data-fotos")), i = +b.getAttribute("data-i");
+    box.querySelector("img").src = f[i];
+    box.querySelectorAll(".pontos button").forEach(function(x,j){ x.classList.toggle("on", j===i); });
+  });
+  render();
+})();
+</script>
+</body>
+</html>
