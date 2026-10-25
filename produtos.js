@@ -1,63 +1,59 @@
 /* ============================================================
    CATÁLOGO PRINT ATELIÊ 3D — edite só este arquivo
    ------------------------------------------------------------
-   Para cada produto:
-   - fotos: arquivos dentro da pasta img/ (deixe [] se ainda não tiver foto)
-   - preco: texto do jeito que aparece no site ("R$ 38,14", "a partir de R$ 5,00", "sob consulta")
-   - links: cole o link do anúncio. Link vazio "" = o botão não aparece.
-   - destaque: true mostra a etiqueta laranja no card
-   - status: "disponivel" | "encomenda" | "breve"
+   fotos:  arquivos da pasta img/ (a 1ª é a capa do card)
+   preco:  texto exibido ("R$ 34,90", "a partir de R$ 5,00", "sob consulta")
+   inclui: texto curto embaixo do preço ("3 unidades", "com vela LED")
+   links:  cole o link do anúncio. Vazio "" = o botão não aparece.
+   status: "disponivel" | "encomenda" | "breve"
+   etiqueta: selo no card ("Novo", "Mais vendido"...) ou ""
    ============================================================ */
 window.WHATSAPP = "5517981353757";
 window.INSTAGRAM = "printatelie3d";
 
+window.CATEGORIAS = ["Natal", "Cozinha", "Decoração", "Personalizados"];
+
 window.PRODUTOS = [
   {
-    id: "descanso-colher-tampa",
-    nome: "Descanso de Colher e Tampa",
-    categoria: "Cozinha",
-    preco: "R$ 38,14",
-    status: "disponivel",
-    destaque: true,
-    etiqueta: "Novo",
-    descricao: "Apoia colher, concha e a tampa da panela ao mesmo tempo. Nada de bancada suja enquanto você cozinha. 12 × 18 cm, em PETG preto, fácil de lavar.",
-    fotos: ["img/descanso-1.jpg", "img/descanso-2.jpg"],
-    links: { mercadolivre: "", shopee: "", tiktok: "" }
+    id: "presepio-luminoso", nome: "Presépio Luminoso", categoria: "Natal",
+    preco: "R$ 99,90", inclui: "luminária 19 cm · vela LED", status: "encomenda", etiqueta: "Destaque",
+    descricao: "Sagrada Família numa estrebaria iluminada por dentro com vela LED de luz quente. Peça de 19 cm que vira o centro da decoração de Natal.",
+    fotos: ["img/presepio.jpg"], links: { mercadolivre: "", shopee: "", tiktok: "" }
   },
   {
-    id: "gancho-raquete",
-    nome: "Gancho Adesivo para Raquete",
-    categoria: "Esporte",
-    preco: "R$ 6,00",
-    status: "encomenda",
-    destaque: false,
-    etiqueta: "",
-    descricao: "Gancho de parede com fita 3M dupla face, pronto para colar. Ideal para lojas e quadras de beach tennis e tênis. Pode sair na cor da sua loja e com o seu nome em relevo.",
-    fotos: ["img/gancho-2.jpg", "img/gancho-3.jpg", "img/gancho-1.jpg"],
-    links: { mercadolivre: "", shopee: "", tiktok: "" }
+    id: "papai-noel-fogueira", nome: "Papai Noel na Fogueira", categoria: "Natal",
+    preco: "R$ 69,90", inclui: "luminária 11 cm · vela LED", status: "encomenda", etiqueta: "Mais pedido",
+    descricao: "Papai Noel e a rena se aquecendo na fogueira, com vela LED que acende de verdade. Colorido e cheio de detalhes.",
+    fotos: ["img/papai-noel.jpg"], links: { mercadolivre: "", shopee: "", tiktok: "" }
   },
   {
-    id: "ponteira-lapis-nome",
-    nome: "Ponteira de Lápis com Nome",
-    categoria: "Personalizados",
-    preco: "a partir de R$ 5,00",
-    status: "encomenda",
-    destaque: true,
-    etiqueta: "Escolas",
-    descricao: "Ponteira personalizada com o nome de cada aluno, na cor que você escolher e nome em branco. Perfeita para lembrancinha de escola e volta às aulas.",
-    fotos: [],
-    links: { mercadolivre: "", shopee: "", tiktok: "" }
+    id: "guirlanda-pinheiros", nome: "Guirlanda de Pinheiros", categoria: "Natal",
+    preco: "R$ 49,90", inclui: "para porta ou parede", status: "encomenda", etiqueta: "",
+    descricao: "Guirlanda com pinheiros, azevinho e laço dourado. Leve, não desbota e dura vários Natais.",
+    fotos: ["img/guirlanda.jpg"], links: { mercadolivre: "", shopee: "", tiktok: "" }
   },
   {
-    id: "papai-noel-fogueira",
-    nome: "Papai Noel na Fogueira (luminária)",
-    categoria: "Natal",
-    preco: "sob consulta",
-    status: "breve",
-    destaque: false,
-    etiqueta: "",
-    descricao: "Papai Noel sentado na fogueira com vela de LED de luz quente. Decoração de Natal que acende de verdade.",
-    fotos: [],
-    links: { mercadolivre: "", shopee: "", tiktok: "" }
+    id: "tigelas-arvore", nome: "Tigelas Árvore de Natal", categoria: "Cozinha",
+    preco: "R$ 34,90", inclui: "3 unidades · empilháveis", status: "encomenda", etiqueta: "",
+    descricao: "Tigelas em formato de árvore para servir biscoitos, doces e petiscos na ceia. Empilham para guardar.",
+    fotos: ["img/tigelas.jpg"], links: { mercadolivre: "", shopee: "", tiktok: "" }
+  },
+  {
+    id: "porta-copos-natalino", nome: "Porta-copos Natalino", categoria: "Cozinha",
+    preco: "R$ 39,90", inclui: "4 unidades", status: "encomenda", etiqueta: "",
+    descricao: "Jogo de porta-copos com flocos de neve em relevo, em vermelho e verde. Protege a mesa e decora.",
+    fotos: ["img/porta-copos.jpg"], links: { mercadolivre: "", shopee: "", tiktok: "" }
+  },
+  {
+    id: "cortadores-biscoito", nome: "Cortadores de Biscoito de Natal", categoria: "Cozinha",
+    preco: "R$ 39,90", inclui: "kit com 7 modelos", status: "encomenda", etiqueta: "",
+    descricao: "Boneco de neve, Mamãe Noel, Papai Noel, árvore, rena, boneco de gengibre e bola. Lavar à mão.",
+    fotos: ["img/cortadores.jpg"], links: { mercadolivre: "", shopee: "", tiktok: "" }
+  },
+  {
+    id: "placa-feliz-natal", nome: "Placa Feliz Natal", categoria: "Decoração",
+    preco: "R$ 24,90", inclui: "13 × 14 cm · decoração de mesa", status: "encomenda", etiqueta: "",
+    descricao: "Letreiro Feliz Natal com floco de neve, para mesa, aparador ou estante. Escolha a cor.",
+    fotos: ["img/placa-feliz-natal.jpg"], links: { mercadolivre: "", shopee: "", tiktok: "" }
   }
 ];
