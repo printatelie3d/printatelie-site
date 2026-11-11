@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Chaveiros, placas e brindes personalizados em impressão 3D para empresas. Monte seu chaveiro, veja ideias por segmento e peça orçamento pelo WhatsApp.">
+<meta property="og:title" content="Print Ateliê para Empresas"><meta property="og:description" content="Sua marca em peças que as pessoas guardam."><meta property="og:image" content="img/empresas-feliz-natal.jpg">
+<link rel="icon" href="favicon.png"><link rel="apple-touch-icon" href="img/icone.png">
+<title>Print Ateliê para Empresas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Pacifico&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Conceito: vitrine de oficina. Faixas claras (creme) e escuras (grafite) alternadas, laranja como único destaque.
+   Peça central: simulador de chaveiro ao vivo. */
+:root{
+  --bg:#FFF6EC; --bg2:#FFFFFF; --ink:#1E2230; --muted:#5B5F6E; --line:#E9DCCB;
+  --accent:#E8541A; --accent-ink:#FFFFFF; --amber:#FFB627; --band:#1E2230; --band-ink:#FFF6EC; --band-muted:#B9BDCB;
+  --chip:#F6E8D6; --shadow:0 10px 30px rgba(30,34,48,.12);
+  --f-display:'Fredoka','Poppins',system-ui,sans-serif; --f-body:'Poppins',system-ui,sans-serif; --f-script:'Pacifico',cursive;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1120px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-display);line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(1.7rem,4.2vw,2.5rem)}
+p{margin:0}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:600 1rem var(--f-body);padding:.85rem 1.4rem;border-radius:999px;border:2px solid var(--accent);background:var(--accent);color:var(--accent-ink);text-decoration:none;cursor:pointer;min-height:48px}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn:focus-visible,select:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.back{font:500 .9rem var(--f-body);text-decoration:none;color:var(--muted)}.logo img{display:block;height:38px;width:auto}
+@media (max-width:520px){.back{display:none}}
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.logo{display:flex;align-items:baseline;gap:6px;text-decoration:none;font-family:var(--f-display);font-weight:700;font-size:1.5rem}
+.logo i{font-family:var(--f-script);font-style:normal;color:var(--accent);font-weight:400}
+.logo b{font:600 .62rem var(--f-body);background:var(--ink);color:var(--bg);border-radius:5px;padding:1px 5px;align-self:flex-start;margin-top:4px}
+header .btn{padding:.55rem 1.1rem;min-height:42px;font-size:.92rem}
+/* hero + simulador */
+.hero{padding-block:clamp(28px,6vw,64px)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(20px,4vw,48px);align-items:center}
+.eyebrow{font:600 .75rem var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.hero h1{font-size:clamp(2.2rem,6vw,3.9rem);margin:10px 0 14px}
+.hero h1 em{font-family:var(--f-script);font-style:normal;color:var(--accent);font-weight:400}
+.hero p.lead{color:var(--muted);font-size:1.08rem;max-width:34rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding:0;list-style:none}
+.facts li{background:var(--chip);border-radius:999px;padding:.35rem .8rem;font-size:.84rem}
+.sim{background:var(--bg2);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:18px;min-width:0}
+.sim-stage{background:linear-gradient(160deg,var(--chip),var(--bg));border-radius:16px;padding:8px;display:flex;justify-content:center}
+.sim-stage svg{width:100%;max-width:440px;height:auto;display:block}
+.sim-ctl{display:grid;gap:12px;margin-top:14px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label.f,.f-title{display:block;font:600 .74rem var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+input[type=text],input[type=number],select{width:100%;font:500 1rem var(--f-body);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:.65rem .8rem;min-height:46px}
+.swatches{display:flex;flex-wrap:wrap;gap:8px}
+.sw{width:34px;height:34px;border-radius:50%;border:3px solid var(--bg2);box-shadow:0 0 0 1.5px var(--line);cursor:pointer;padding:0}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 3px var(--accent)}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{font:500 .88rem var(--f-body);border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:.4rem .85rem;cursor:pointer;min-height:38px}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.nfc{display:flex;align-items:center;gap:10px;font-size:.95rem}
+.nfc input{width:22px;height:22px;accent-color:var(--accent)}
+.sim .btn{width:100%;margin-top:4px}
+.note{font-size:.8rem;color:var(--muted)}
+/* seções */
+section{padding-block:clamp(40px,7vw,80px)}
+.band{background:var(--band);color:var(--band-ink);margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.band .muted,.band .note{color:var(--band-muted)}
+.sec-head{display:grid;gap:8px;margin-bottom:26px;max-width:42rem}
+.sec-head p{color:var(--muted)}
+.band .sec-head p{color:var(--band-muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chips button{font:500 .95rem var(--f-body);border:1.5px solid var(--line);background:var(--bg2);color:var(--ink);border-radius:999px;padding:.5rem 1rem;cursor:pointer;min-height:44px}
+.chips button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.card .ph{aspect-ratio:4/3;background:var(--chip);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.card .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.card .ph svg{width:46%;height:46%;color:var(--accent)}
+.card .tx{padding:14px 16px 16px;display:grid;gap:6px}
+.card h3{font-size:1.15rem}
+.card p{font-size:.92rem;color:var(--muted)}
+.tag{justify-self:start;font:600 .68rem var(--f-body);letter-spacing:.06em;text-transform:uppercase;padding:.15rem .55rem;border-radius:6px;background:var(--chip);color:var(--ink)}
+.tag.ok{background:var(--accent);color:var(--accent-ink)}
+/* calculadora */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,44px);align-items:start}
+.panel{background:var(--bg2);color:var(--ink);border-radius:20px;padding:20px;display:grid;gap:14px;min-width:0}
+.tiers{width:100%;border-collapse:collapse;font-size:.92rem}
+.tiers th,.tiers td{text-align:left;padding:.45rem .3rem;border-bottom:1px solid var(--line)}
+.tiers tr.on td{color:var(--accent);font-weight:600}
+.tiers td:last-child,.tiers th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.total{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.total strong{font:700 clamp(1.8rem,5vw,2.4rem) var(--f-display);color:var(--accent);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--accent);min-height:32px}
+/* passos */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;padding:0;margin:0;list-style:none;counter-reset:s}
+.steps li{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:18px;display:grid;gap:6px;counter-increment:s}
+.steps li::before{content:counter(s);font:700 2rem var(--f-display);color:var(--accent);line-height:1}
+.steps h3{font-size:1.1rem}.steps p{font-size:.92rem;color:var(--muted)}
+/* faq */
+details{border-bottom:1px solid var(--line);padding:14px 2px}
+details summary{cursor:pointer;font:600 1.05rem var(--f-display);list-style:none;display:flex;justify-content:space-between;gap:12px;min-height:32px}
+details summary::after{content:"+";color:var(--accent);font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:8px;color:var(--muted);max-width:44rem}
+/* rodapé */
+.contact{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center}
+.contact h2{font-size:clamp(1.9rem,5vw,3rem)}
+.contact h2 em{font-family:var(--f-script);font-style:normal;color:var(--amber);font-weight:400}
+.cinfo{display:grid;gap:10px}
+.cinfo .ln{background:rgba(255,255,255,.07);border-radius:14px;padding:12px 14px;display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;overflow-wrap:anywhere}
+.cinfo b{font-weight:600}
+.copy{font:500 .8rem var(--f-body);background:transparent;border:1.5px solid var(--band-muted);color:var(--band-ink);border-radius:999px;padding:.3rem .8rem;cursor:pointer;min-height:36px}
+footer{padding-block:22px;font-size:.82rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+@media (max-width:820px){
+  .hero .wrap,.calc,.contact{grid-template-columns:1fr}
+  .row2{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="index.html" aria-label="Print Ateliê 3D, voltar ao início"><img src="img/logo-claro.png" alt="Print Ateliê 3D" height="38"></a>
+  <span style="display:flex;align-items:center;gap:14px"><a class="back" href="index.html">← Voltar ao site</a><a class="btn" id="wa-top" href="#" target="_blank" rel="noopener">Pedir orçamento</a></span>
+</div></header>
+
+<main id="topo">
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="eyebrow">Impressão 3D para empresas</p>
+    <h1>Sua marca em peças que as pessoas <em>guardam</em>.</h1>
+    <p class="lead">Chaveiros, placas, brindes e kits personalizados com a identidade da sua empresa. Monte um chaveiro ao lado e veja como ele pode ficar.</p>
+    <div class="cta-row">
+      <a class="btn" id="wa-hero" href="#" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <a class="btn ghost" href="#orcamento">Calcular valor</a>
+    </div>
+    <ul class="facts">
+      <li>Cores da sua identidade visual</li>
+      <li>Tag NFC opcional</li>
+      <li>Peças em alto relevo</li>
+    </ul>
+  </div>
+
+  <div class="sim" aria-label="Simulador de chaveiro">
+    <div class="sim-stage">
+      <svg id="kc" viewBox="0 0 440 330" role="img" aria-label="Prévia do chaveiro"></svg>
+    </div>
+    <div class="sim-ctl">
+      <div><label class="f" for="t1">Nome da empresa</label><input id="t1" type="text" maxlength="22" value="Oliveira Sabores" autocomplete="off"></div>
+      <div><label class="f" for="t2">Segunda linha (opcional)</label><input id="t2" type="text" maxlength="26" value="Café & Padaria" autocomplete="off"></div>
+      <div><span class="f-title">Formato</span><div class="seg" id="shape"></div></div>
+      <div class="row2">
+        <div><span class="f-title">Cor da peça</span><div class="swatches" id="pc"></div></div>
+        <div><span class="f-title">Cor do texto</span><div class="swatches" id="tc"></div></div>
+      </div>
+      <div><span class="f-title">Símbolo</span><div class="seg" id="ic"></div></div>
+      <label class="nfc"><input type="checkbox" id="nfc"> Incluir tag NFC (abre seu Instagram, site ou cardápio ao aproximar o celular)</label>
+      <a class="btn" id="wa-sim" href="#" target="_blank" rel="noopener">Pedir este chaveiro</a>
+      <p class="note">Prévia ilustrativa. Antes de produzir, ajustamos o desenho e as cores com a logo da sua empresa.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="ideias"><div class="wrap">
+  <div class="sec-head">
+    <p class="eyebrow">O que dá pra fazer</p>
+    <h2>Escolha o seu segmento</h2>
+    <p>Peças já produzidas e ideias sob encomenda. Se não achou o que precisa, descreva e a gente desenha.</p>
+  </div>
+  <div class="chips" id="seg-chips" role="group" aria-label="Filtrar por segmento"></div>
+  <div class="grid" id="ideas"></div>
+</div></section>
+
+<section id="orcamento" class="band"><div class="wrap">
+  <div class="calc">
+    <div>
+      <div class="sec-head">
+        <p class="eyebrow">Orçamento rápido</p>
+        <h2>Quanto custa a sua encomenda?</h2>
+        <p>Quanto maior o pedido, menor o valor de cada peça. Escolha o produto e a quantidade para ter uma referência.</p>
+      </div>
+      <p class="note">Valores de referência. O preço final é confirmado no orçamento, depois de vermos a logo, as cores e o prazo.</p>
+    </div>
+    <div class="panel">
+      <div><label class="f" for="prod">Produto</label><select id="prod"></select></div>
+      <div><label class="f" for="qty">Quantidade: <span id="qv">20</span> unidades</label><input id="qty" type="range" min="1" max="100" value="20"></div>
+      <table class="tiers" id="tiers" aria-label="Faixas de preço"></table>
+      <div class="total"><span>Referência por peça: <b id="unit">–</b></span><strong id="tot">–</strong></div>
+      <a class="btn" id="wa-calc" href="#" target="_blank" rel="noopener">Pedir orçamento com essa quantidade</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="como"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Como encomendar</p><h2>Da ideia à peça pronta</h2></div>
+  <ol class="steps">
+    <li><h3>Sua ideia</h3><p>Conte o que quer criar e mande referências e a logo da empresa.</p></li>
+    <li><h3>Personalização</h3><p>Avaliamos design, cores e quantidade e mostramos como a peça vai ficar.</p></li>
+    <li><h3>Orçamento</h3><p>Alinhamos valores e prazo de entrega, sem compromisso.</p></li>
+    <li><h3>Produção</h3><p>Depois da aprovação, as suas peças são fabricadas e entregues.</p></li>
+  </ol>
+</div></section>
+
+<section id="duvidas"><div class="wrap" style="max-width:820px">
+  <div class="sec-head"><p class="eyebrow">Dúvidas</p><h2>Perguntas frequentes</h2></div>
+  <details><summary>Que arquivo da logo eu preciso mandar?</summary><p>O melhor é SVG ou PDF vetorial. Se você só tem PNG ou JPG, sem problema: refazemos o desenho. Quanto maior a imagem, melhor o resultado.</p></details>
+  <details><summary>Posso pedir poucas unidades?</summary><p>Pode. O valor de cada peça fica menor a partir de 20 unidades, então vale combinar a quantidade antes de fechar.</p></details>
+  <details><summary>Dá pra usar as cores da minha marca?</summary><p>Sim. A peça é impressa em várias cores de filamento, combinando com a sua identidade visual. Quanto mais cores, mais trabalhosa a produção.</p></details>
+  <details><summary>Como funciona o chaveiro com NFC?</summary><p>Colocamos uma tag NFC dentro da peça, durante a impressão. Ao aproximar o celular, abre o link que você escolher: Instagram, site, cardápio ou WhatsApp.</p></details>
+  <details><summary>Qual o prazo de entrega?</summary><p>Depende da quantidade e da complexidade da arte. Informamos o prazo no orçamento, antes de você aprovar.</p></details>
+  <details><summary>Quais são os tamanhos?</summary><p>Chaveiros costumam ter de 5 a 8 cm, e placas e brindes de mesa podem ir além. Fazemos sob medida para o seu uso.</p></details>
+</div></section>
+
+<section class="band"><div class="wrap contact" id="contato">
+  <div>
+    <h2>Vamos criar algo <em>exclusivo</em> para a sua empresa?</h2>
+    <p class="muted" style="margin-top:12px">Conte a ideia e a quantidade. Respondemos com uma proposta.</p>
+    <div class="cta-row"><a class="btn" id="wa-foot" href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    <a class="btn ghost" style="color:var(--band-ink);border-color:var(--band-ink)" id="ig" href="#" target="_blank" rel="noopener">@printatelie3d</a></div>
+  </div>
+  <div class="cinfo">
+    <div class="ln"><span><b>WhatsApp</b> (17) 98135-3757</span><button class="copy" data-copy="(17) 98135-3757">Copiar</button></div>
+    <div class="ln"><span><b>E-mail</b> printatelie3d@gmail.com</span><button class="copy" data-copy="printatelie3d@gmail.com">Copiar</button></div>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap"><span>Print Ateliê 3D · Sua ideia. Nossa impressão.</span><span>Fotos ilustrativas de peças produzidas.</span></div></footer>
+
+<script src="produtos.js"></script>
+<script>
+/* ===== EDITE AQUI ===== */
+var WHATSAPP=window.WHATSAPP||"5517981353757", INSTAGRAM=window.INSTAGRAM||"printatelie3d";
+/* Preços de REFERÊNCIA (a confirmar): faixas [quantidade mínima, preço por peça] */
+var PRODUTOS=[
+ {id:"chav3", nome:"Chaveiro personalizado, 3 cores, ~8 cm", tiers:[[1,18],[10,16],[20,14],[50,12]]},
+ {id:"placa", nome:"Placa de mesa em alto relevo (ex.: Reservado)", tiers:[[1,18],[20,14],[30,12.5]]},
+ {id:"kit", nome:"Kit de Natal personalizado (5 itens)", tiers:[[1,44.9]]}
+];
+/* Ideias por segmento. tag: "ok" = já produzimos, "enc" = sob encomenda, "ilus" = sugestão ilustrativa */
+var SEGS=["Todos","Academia","Restaurante e café","Estética automotiva","Saúde e escola","Escritório","Natal e eventos"];
+var IDEIAS=[
+ {s:"Academia",n:"Painel de chaves em alto relevo",d:"Painel com o nome da academia e ganchos para as chaves, em relevo.",t:"ok",i:"key"},
+ {s:"Academia",n:"Chaveiros de armário e brinde",d:"Chaveiros nos formatos do treino: haltere, anilha, kettlebell.",t:"ok",i:"dumbbell"},
+ {s:"Restaurante e café",n:"Placa Reservado em alto relevo",d:"Placa de mesa com letras em relevo e perninha. Ideal para lotes de 20 a 30.",t:"enc",i:"sign"},
+ {s:"Restaurante e café",n:"Porta-copos personalizado",d:"Com a logo do estabelecimento, em cores da marca.",t:"ok",i:"coaster",img:"copos"},
+ {s:"Restaurante e café",n:"Plaquinha de mesa com NFC",d:"O cliente encosta o celular e abre o cardápio, o Instagram ou o Pix.",t:"enc",i:"nfc"},
+ {s:"Estética automotiva",n:"Chaveiro com a logo da oficina",d:"Brinde para entregar junto com o carro e o cartão de visita.",t:"enc",i:"car"},
+ {s:"Estética automotiva",n:"Suporte de celular para o carro",d:"Peça útil que fica no dia a dia do cliente, com espaço para a marca.",t:"ok",i:"phone",img:"suporte"},
+ {s:"Saúde e escola",n:"Chaveiros de turma e formatura",d:"Nome, turma e símbolo do curso. Uma peça por aluno, cada uma com seu nome.",t:"enc",i:"cross"},
+ {s:"Saúde e escola",n:"Placas e troféus de reconhecimento",d:"Homenagens para metas, colaboradores e aniversários da empresa.",t:"enc",i:"trophy"},
+ {s:"Escritório",n:"Porta-canetas personalizado",d:"Organizador de mesa com a logo e as cores da empresa.",t:"ok",i:"pen",img:"canetas"},
+ {s:"Escritório",n:"Suporte de celular",d:"Brinde útil para equipes e clientes, com espaço para o logotipo.",t:"ok",i:"phone"},
+ {s:"Natal e eventos",n:"Placa Feliz Natal personalizada",d:"Com o nome da família, da equipe ou da empresa.",t:"ok",i:"tree",img:"natal"},
+ {s:"Natal e eventos",n:"Kit corporativo de fim de ano",d:"Composição com enfeites, porta-copos e chaveiro. Imagem ilustrativa da sugestão.",t:"ilus",i:"gift",img:"kit"}
+];
+var IMG={canetas:"img/empresas-porta-canetas.jpg",suporte:"img/empresas-suporte-celular.jpg",copos:"img/empresas-porta-copos.jpg",natal:"img/empresas-feliz-natal.jpg",kit:"img/empresas-kit-corporativo.jpg"};
+/* ===== FIM ===== */
+
+var $=function(s){return document.querySelector(s)};
+function wa(msg){return "https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg)}
+function brl(v){return v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"})}
+
+/* ---------- ícones (24x24) ---------- */
+var ICONS={
+ dumbbell:'<path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/>',
+ fork:'<path d="M8 3v7a2 2 0 0 0 4 0V3M10 3v18M17 3c-2 2-3 5-3 8h3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>',
+ car:'<path d="M4 15l1.6-5A2 2 0 0 1 7.5 8.600h9a2 2 0 0 1 1.900 1.400L20 15M3 15h18v3H3zM7 18v2M17 18v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="7.500" cy="15" r="1" fill="currentColor"/><circle cx="16.500" cy="15" r="1" fill="currentColor"/>',
+ cross:'<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z" fill="currentColor"/>',
+ book:'<path d="M12 6c-2-1.500-5-2-8-2v14c3 0 6 .5 8 2 2-1.500 5-2 8-2V4c-3 0-6 .5-8 2zM12 6v14" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>',
+ star:'<path d="M12 3l2.700 5.600 6.100.8-4.500 4.200 1.100 6-5.400-3-5.400 3 1.100-6L3.200 9.400l6.100-.8z" fill="currentColor"/>'
+};
+var PICON=[["none","Sem símbolo",null],["dumbbell","Academia","dumbbell"],["fork","Restaurante","fork"],["car","Automotivo","car"],["cross","Saúde","cross"],["book","Escola","book"],["star","Estrela","star"]];
+var CARDICON={
+ key:ICONS.star,dumbbell:ICONS.dumbbell,sign:'<rect x="3" y="7" width="18" height="9" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+ coaster:'<circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" fill="none"/>',
+ nfc:'<rect x="6" y="3" width="12" height="18" rx="2.500" stroke="currentColor" stroke-width="2" fill="none"/><path d="M9.500 9.500a3.500 3.500 0 0 1 5 0M8 7.500a6 6 0 0 1 8 0" stroke="currentColor" stroke-width="1.800" stroke-linecap="round" fill="none"/>',
+ car:ICONS.car,phone:'<rect x="7" y="3" width="10" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M11 18h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+ cross:ICONS.cross,trophy:'<path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 20h8M10 17h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>',
+ pen:'<path d="M6 21V9h12v12zM9 9V3M12 9V4M15 9V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>',
+ tree:'<path d="M12 3l5 6h-3l4 5h-4l3 4H7l3-4H6l4-5H7zM12 18v3" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="none"/>',
+ gift:'<rect x="4" y="9" width="16" height="11" rx="1" stroke="currentColor" stroke-width="2" fill="none"/><path d="M3 9h18v-3H3zM12 6v14M12 6c-2-3-5-3-5-1s3 1 5 1zM12 6c2-3 5-3 5-1s-3 1-5 1z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>'
+};
+
+/* ---------- simulador ---------- */
+var PCOL=[["#E8541A","Laranja"],["#1E2230","Grafite"],["#C62828","Vermelho"],["#1565C0","Azul"],["#2E7D32","Verde"],["#F2B705","Amarelo"],["#6A1B9A","Roxo"]];
+var TCOL=[["#FFFFFF","Branco"],["#111111","Preto"],["#FFD54A","Amarelo"],["#FFB38A","Pêssego"]];
+var SHAPES=[["round","Arredondado"],["shield","Escudo"],["hex","Hexágono"],["badge","Selo"]];
+var st={shape:"round",pc:"#E8541A",tc:"#FFFFFF",ic:"none",nfc:false};
+var shapeName=function(k){return SHAPES.filter(function(x){return x[0]==k})[0][1]};
+var colName=function(arr,h){return arr.filter(function(x){return x[0]==h})[0][1]};
+var iconName=function(k){return PICON.filter(function(x){return x[0]==k})[0][1]};
+
+function shapePath(k){
+ if(k=="round")return "M90 70 H350 Q392 70 392 112 V228 Q392 270 350 270 H90 Q48 270 48 228 V112 Q48 70 90 70 Z";
+ if(k=="shield")return "M60 68 H380 V190 Q380 262 220 296 Q60 262 60 190 Z";
+ if(k=="hex")return "M130 62 H310 L396 170 L310 278 H130 L44 170 Z";
+ return "M220 56 L246 70 L276 64 L292 90 L322 98 L322 128 L346 148 L334 176 L346 204 L322 220 L322 250 L292 258 L276 284 L246 278 L220 292 L194 278 L164 284 L148 258 L118 250 L118 220 L94 204 L106 176 L94 148 L118 128 L118 98 L148 90 L164 64 L194 70 Z";
+}
+var NS="http://www.w3.org/2000/svg";
+function el(tag,attrs,html){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);if(html)e.innerHTML=html;return e}
+function drawKC(){
+ var svg=$("#kc");svg.innerHTML="";
+ var p=shapePath(st.shape), t1=$("#t1").value.trim()||"Sua empresa", t2=$("#t2").value.trim();
+ var tilt=st.shape=="badge"?0:0;
+ // anel metálico
+ svg.appendChild(el("ellipse",{cx:220,cy:28,rx:30,ry:20,fill:"none",stroke:"#9AA0AD","stroke-width":6}));
+ // sombra e relevo
+ svg.appendChild(el("path",{d:p,fill:"#000",opacity:.22,transform:"translate(0 10)"}));
+ svg.appendChild(el("path",{d:p,fill:"#14161F",stroke:"#14161F","stroke-width":22,"stroke-linejoin":"round"}));
+ svg.appendChild(el("path",{d:p,fill:st.pc,stroke:"#14161F","stroke-width":0}));
+ // filete interno
+ svg.appendChild(el("path",{d:p,fill:"none",stroke:st.tc,"stroke-width":2.5,opacity:.35,transform:"translate(220 170) scale(.92) translate(-220 -170)","stroke-linejoin":"round"}));
+ // furo
+ svg.appendChild(el("circle",{cx:220,cy:58,r:11,fill:"#14161F"}));
+ svg.appendChild(el("circle",{cx:220,cy:58,r:6.5,style:"fill:var(--chip)"}));
+ var hasIc=st.ic!="none", y1=hasIc?186:(t2?170:182), y2=y1+40;
+ if(hasIc){var g=el("g",{transform:"translate(196 100) scale(1.9)",color:st.tc});g.innerHTML=ICONS[st.ic];svg.appendChild(g)}
+ var maxW=st.shape=="hex"||st.shape=="badge"?190:250;
+ function line(txt,y,size,weight,fam){
+   var tx=el("text",{x:220,y:y,"text-anchor":"middle","font-family":fam,"font-weight":weight,"font-size":size,fill:st.tc});
+   tx.textContent=txt;svg.appendChild(tx);
+   for(var i=0;i<14;i++){var w=tx.getComputedTextLength();if(w<=maxW)break;size*=.92;tx.setAttribute("font-size",size)}
+ }
+ line(t1,y1,34,700,"Fredoka, Poppins, sans-serif");
+ if(t2)line(t2,y2-2,20,500,"Poppins, sans-serif");
+ if(st.nfc){var n=el("g",{transform:"translate(334 236)",color:st.tc});n.innerHTML='<circle r="15" fill="#14161F"/><g transform="translate(-9 -9) scale(.75)">'+CARDICON.nfc+'</g>';svg.appendChild(n)}
+ var ph=$("#wa-sim");
+ ph.href=wa("Olá! Vi o simulador de chaveiros no site e quero um orçamento.\n\nEmpresa: "+t1+(t2?"\nSegunda linha: "+t2:"")+"\nFormato: "+shapeName(st.shape)+"\nCor da peça: "+colName(PCOL,st.pc)+"\nCor do texto: "+colName(TCOL,st.tc)+"\nSímbolo: "+iconName(st.ic)+"\nTag NFC: "+(st.nfc?"sim":"não")+"\n\nQuantidade: ");
+}
+function seg(box,items,key,fmt){
+ var c=$(box);c.innerHTML="";
+ items.forEach(function(it){var b=document.createElement("button");b.type="button";b.textContent=fmt?fmt(it):it[1];b.setAttribute("aria-pressed",st[key]==it[0]);
+  b.onclick=function(){st[key]=it[0];[].forEach.call(c.children,function(x){x.setAttribute("aria-pressed","false")});b.setAttribute("aria-pressed","true");drawKC()};c.appendChild(b)})
+}
+function swatches(box,items,key){
+ var c=$(box);
+ items.forEach(function(it){var b=document.createElement("button");b.type="button";b.className="sw";b.style.background=it[0];b.title=it[1];b.setAttribute("aria-label",it[1]);b.setAttribute("aria-pressed",st[key]==it[0]);
+  b.onclick=function(){st[key]=it[0];[].forEach.call(c.children,function(x){x.setAttribute("aria-pressed","false")});b.setAttribute("aria-pressed","true");drawKC()};c.appendChild(b)})
+}
+seg("#shape",SHAPES,"shape");
+swatches("#pc",PCOL,"pc");swatches("#tc",TCOL,"tc");
+seg("#ic",PICON,"ic");
+$("#t1").oninput=drawKC;$("#t2").oninput=drawKC;$("#nfc").onchange=function(e){st.nfc=e.target.checked;drawKC()};
+document.fonts&&document.fonts.ready?document.fonts.ready.then(drawKC):0;
+drawKC();
+
+/* ---------- ideias ---------- */
+var segSel="Todos";
+function renderIdeas(){
+ var box=$("#ideas");box.innerHTML="";
+ IDEIAS.filter(function(x){return segSel=="Todos"||x.s==segSel}).forEach(function(x){
+  var c=document.createElement("article");c.className="card";
+  var ph=x.img?'<img alt="'+x.n+'" src="'+IMG[x.img]+'">':'<svg viewBox="0 0 24 24" aria-hidden="true">'+CARDICON[x.i]+'</svg>';
+  var tag=x.t=="ok"?'<span class="tag ok">Já produzimos</span>':x.t=="ilus"?'<span class="tag">Sugestão ilustrativa</span>':'<span class="tag">Sob encomenda</span>';
+  c.innerHTML='<div class="ph">'+ph+'</div><div class="tx">'+tag+'<h3>'+x.n+'</h3><p>'+x.d+'</p></div>';
+  box.appendChild(c)})
+}
+(function(){var c=$("#seg-chips");SEGS.forEach(function(s){var b=document.createElement("button");b.type="button";b.textContent=s;b.setAttribute("aria-pressed",s==segSel);
+ b.onclick=function(){segSel=s;[].forEach.call(c.children,function(x){x.setAttribute("aria-pressed","false")});b.setAttribute("aria-pressed","true");renderIdeas()};c.appendChild(b)});renderIdeas()})();
+
+/* ---------- calculadora ---------- */
+(function(){
+ var sel=$("#prod");PRODUTOS.forEach(function(p){var o=document.createElement("option");o.value=p.id;o.textContent=p.nome;sel.appendChild(o)});
+ function unitFor(p,q){var u=p.tiers[0][1];p.tiers.forEach(function(t){if(q>=t[0])u=t[1]});return u}
+ function calc(){
+  var p=PRODUTOS.filter(function(x){return x.id==sel.value})[0],q=+$("#qty").value;
+  $("#qv").textContent=q;
+  var u=unitFor(p,q);
+  $("#unit").textContent=brl(u);$("#tot").textContent=brl(u*q);
+  var rows='<tr><th>A partir de</th><th>Por peça</th></tr>';
+  p.tiers.forEach(function(t,i){var next=p.tiers[i+1];var on=q>=t[0]&&(!next||q<next[0]);
+   rows+='<tr'+(on?' class="on"':'')+'><td>'+(t[0]==1?'1 unidade':t[0]+' unidades')+'</td><td>'+brl(t[1])+'</td></tr>'});
+  $("#tiers").innerHTML=rows;
+  $("#wa-calc").href=wa("Olá! Quero um orçamento.\n\nProduto: "+p.nome+"\nQuantidade: "+q+"\nReferência do site: "+brl(u)+" por peça ("+brl(u*q)+")\n\nSegue a logo da empresa:");
+ }
+ sel.onchange=calc;$("#qty").oninput=calc;calc();
+})();
+
+/* ---------- links e cópia ---------- */
+var hi="Olá! Vi o site da Print Ateliê e quero um orçamento para a minha empresa.";
+["#wa-top","#wa-hero","#wa-foot"].forEach(function(s){$(s).href=wa(hi)});
+$("#ig").href="https://instagram.com/"+INSTAGRAM;
+[].forEach.call(document.querySelectorAll(".copy"),function(b){b.onclick=function(){
+ var t=b.getAttribute("data-copy");
+ function ok(){b.textContent="Copiado";setTimeout(function(){b.textContent="Copiar"},1500)}
+ try{navigator.clipboard.writeText(t).then(ok,function(){b.textContent=t})}catch(e){b.textContent=t}}});
+</script>
+
+</body></html>
