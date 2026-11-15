@@ -327,8 +327,8 @@ footer{background:var(--graf);color:#BFB9B0;padding:60px 0 30px;margin-top:96px}
     if(L.mercadolivre)b+='<a class="btn b-ml" href="'+esc(L.mercadolivre)+'" target="_blank" rel="noopener">Comprar no Mercado Livre</a>';
     if(L.shopee)b+='<a class="btn b-sh" href="'+esc(L.shopee)+'" target="_blank" rel="noopener">Comprar na Shopee</a>';
     if(L.tiktok)b+='<a class="btn b-tt" href="'+esc(L.tiktok)+'" target="_blank" rel="noopener">Comprar no TikTok Shop</a>';
-    var msg=p.status==="breve"?"Olá! Quero ser avisado(a) quando o "+p.nome+" estiver disponível.":"Olá! Tenho interesse em: "+p.nome+" ("+p.preco+"). Pode me passar cores e prazo?";
-    b+='<a class="btn btn-zap" href="'+zap(msg)+'" target="_blank" rel="noopener">'+(p.status==="breve"?"Avise-me quando chegar":"Encomendar pelo WhatsApp")+'</a>';
+    var msg=p.status==="breve"?"Olá! Quero ser avisado(a) quando o "+p.nome+" estiver disponível.":(/cota/i.test(p.preco)?"Olá! Quero uma cotação de: "+p.nome+". Pode me passar preço, cores e prazo?":"Olá! Tenho interesse em: "+p.nome+" ("+p.preco+"). Pode me passar cores e prazo?");
+    b+='<a class="btn btn-zap" href="'+zap(msg)+'" target="_blank" rel="noopener">'+(p.status==="breve"?"Avise-me quando chegar":/cota/i.test(p.preco)?"Pedir cotação no WhatsApp":"Encomendar pelo WhatsApp")+'</a>';
     mbox.innerHTML='<button class="fecha" aria-label="Fechar">×</button><div class="mf">'+(p.fotos&&p.fotos[0]?'<img src="'+esc(p.fotos[0])+'" alt="'+esc(p.nome)+'">':'')+'</div><div class="mi"><span class="st">'+(ST[p.status]||"")+'</span><span class="eyebrow">'+esc(p.categoria)+'</span><h3>'+esc(p.nome)+'</h3><p style="color:var(--sub)">'+esc(p.descricao)+'</p><div class="preco">'+esc(p.preco)+'<small>'+esc(p.inclui||"")+'</small></div><p style="font-size:14px;color:var(--sub)">Cores sob consulta · cartão de crédito e Pix</p><div class="bts">'+b+'</div></div>';
     modal.classList.add("on");document.body.style.overflow="hidden";}
   function fecha(){modal.classList.remove("on");document.body.style.overflow="";}
