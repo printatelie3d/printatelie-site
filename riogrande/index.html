@@ -43,9 +43,6 @@ a{color:inherit}
 .l1 svg [stroke]{stroke:var(--ouro)} .l1 svg [fill="#B4502C"]{fill:var(--ouro)} .l1 svg [fill="#F1E9D8"]{fill:var(--esc)}
 .l2{color:var(--creme);font-size:43px;letter-spacing:.5px;margin-top:4px;text-shadow:0 4px 18px rgba(0,0,0,.45)}
 .l3{color:var(--creme);font-size:12.5px;letter-spacing:.32em;margin-top:9px;opacity:.9}
-.rotor{transform-origin:23px 14px;animation:gira 3.2s linear infinite}
-.logo.sopro .rotor{animation-duration:.45s}
-@keyframes gira{to{transform:rotate(360deg)}}
 .tag{margin-top:14px;font-size:14.5px;color:rgba(241,233,216,.9)}
 .tag b{color:var(--ouro);font-weight:600}
 /* CTA principal */
@@ -107,7 +104,7 @@ footer a{color:var(--ouro);font-weight:600;text-decoration:none}
 /* entrada */
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .rv.on{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rotor,.status i{animation:none}.slides>*{transition:opacity .4s}.rv{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.status i{animation:none}.slides>*{transition:opacity .4s}.rv{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -243,7 +240,16 @@ footer a{color:var(--ouro);font-weight:600;text-decoration:none}
   else if(m<1080){txt="Fechado · jantar a partir das 18h";}
   else {txt="Fechado · abre amanhã às 10h30";}
   var s=document.getElementById("status");s.querySelector("span").textContent=txt;if(!aberto)s.classList.add("fechado");
-  var lg=document.getElementById("logo");lg.addEventListener("click",function(){lg.classList.add("sopro");setTimeout(function(){lg.classList.remove("sopro");},1800);});
+  // catavento: gira sempre; acelera ao passar o mouse, tocar ou soprar (toque)
+  var lg=document.getElementById("logo"),rot=lg.querySelector(".rotor"),ang=0,vel=110,alvo=110,ult=performance.now(),turbo=0;
+  function sopra(ms){turbo=Math.max(turbo,performance.now()+(ms||1800));}
+  lg.addEventListener("pointerenter",function(){sopra(1500);});
+  lg.addEventListener("pointermove",function(){sopra(900);});
+  lg.addEventListener("pointerdown",function(){sopra(2200);});
+  lg.addEventListener("touchstart",function(){sopra(2200);},{passive:true});
+  function quadro(t){var dt=Math.min(.05,(t-ult)/1000);ult=t;alvo=t<turbo?900:110;vel+=(alvo-vel)*Math.min(1,dt*(alvo>vel?4:1.2));ang=(ang+vel*dt)%360;rot.setAttribute("transform","rotate("+ang.toFixed(2)+" 23 14)");requestAnimationFrame(quadro);}
+  requestAnimationFrame(quadro);
+  setTimeout(function(){sopra(1600);},700);
   var io="IntersectionObserver" in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target);}});},{threshold:.12}):null;
   document.querySelectorAll(".rv").forEach(function(el){io?io.observe(el):el.classList.add("on");});
 })();
