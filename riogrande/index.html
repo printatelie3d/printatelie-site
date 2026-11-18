@@ -205,18 +205,25 @@ footer a{color:var(--ouro);font-weight:600;text-decoration:none}
 (function(){
   // FOTOS E VÍDEOS DO TOPO: é só acrescentar arquivos nesta lista (jpg/png ou mp4).
   var MIDIA=[
-    {src:"chopp.jpg",alt:"Canecas de chopp congeladas no freezer do Rio Grande"}
+    {src:"chopp.jpg",alt:"Canecas de chopp congeladas no freezer do Rio Grande"},
+    {src:"https://lh3.googleusercontent.com/gps-cs/AAjk-CM4PJfpjs0LkyI-ecr2wCvDUZeR8jvu2s-ivKgSG0uhPwbCug-Mt6ZVDBDk0jskeu-ZtDMabVykld27nkau-HMKPDm0Tvhy-QsZ8mAGA3-WYymDWYYVXStfF5uOy2i0ZsGxbliYZUsuag1a=w900-h1300-p-k-no",alt:"Foto do Rio Grande"},
+    {src:"https://lh3.googleusercontent.com/gps-cs/AAjk-CMj4v3lhGH_n4HI3p9ynWP4uzH1jesm1Q3AFXQCsF_lL9fho6WFe3K_jczs9oHxmRKk4R7khCRj9HjxiJUg3yy-hAJb2sGVaEYrVqtCT55rR9nNuhNW76q2HyjPDx2FK1JjihRXNScJsbxA=w900-h1300-p-k-no",alt:"Foto do Rio Grande"},
+    {src:"https://lh3.googleusercontent.com/gps-cs/AAjk-CNsOH3da4-M-wj1GXXpP9pQ9X7vn0AlhQu9OtLb_BlHF7anf3yL0nmGuAQPsI7D4mmFCHz8Q5eVSSRpMtnl0A_NnbK7mVTI6dWaW04441PtxT-gbeFCbtwwj9PkzMXRcPQ-dk_9FZdkSpcQ=w900-h1300-p-k-no",alt:"Foto do Rio Grande"},
+    {src:"https://lh3.googleusercontent.com/gps-cs/AAjk-CNO7vvXrftdIbVLoMtlUPOWjTCA7M3Cnqum4vYcxzZhnoJ7WjxKjZNZY0FhR72Y5MUUjoWqo8pNT5i7NblbZcuYBDImQTiybQkfHslRuefjNsfHiIjnhT-ANOuAMnWNo2R3SollEkdaKw2J=w900-h1300-p-k-no",alt:"Foto do Rio Grande"},
+    {src:"https://lh3.googleusercontent.com/gps-cs/AAjk-CPSLjqZZWcbsUaJoNYpRg5-xSNXigjAHgVLx3mER0f1VITgFG6CdEQ5o98Vyloe2KK0sm6lSGlN_pm-iNDkqOGrI01Qec_lYpHn-hscOBIHX2Ga6Mow7qX75Zo6TIaGbIwtxZIEpnlvYbA=w900-h1300-p-k-no",alt:"Foto do Rio Grande"},
+    {src:"https://lh3.googleusercontent.com/gps-cs/AAjk-COWGTvw3azreF0hEzNowKycREVaCiuSYrV-zd9K2TL0xXN-x_XyMHy9OU1vlHGSFvi6GYlXNeeL1Ngv4HRH2iO5cIFSJfmfOT7cL8PkRspFPUylIAy7MzNxR5XQllsYBvsCJygs3XSCduGf=w900-h1300-p-k-no",alt:"Foto do Rio Grande"}
   ];
   var box=document.getElementById("slides"),els=[],dots=null,i=0,tm;
   MIDIA.forEach(function(m){var e;
     if(/\.mp4$/i.test(m.src)){e=document.createElement("video");e.src=m.src;e.muted=true;e.playsInline=true;e.setAttribute("playsinline","");e.preload="auto";e.addEventListener("ended",prox);}
-    else{e=document.createElement("img");e.src=m.src;e.alt=m.alt||"";}
+    else{e=document.createElement("img");e.alt=m.alt||"";e.referrerPolicy="no-referrer";e.addEventListener("error",function(){tira(e);});e.src=m.src;}
     box.appendChild(e);els.push(e);});
   if(els.length>1){dots=document.createElement("div");dots.className="dots";els.forEach(function(){dots.appendChild(document.createElement("i"));});document.querySelector(".hero").appendChild(dots);}
   function mostra(n){els.forEach(function(e,k){e.classList.toggle("on",k===n);if(e.tagName==="VIDEO"){if(k===n){e.currentTime=0;var p=e.play();if(p&&p.catch)p.catch(function(){});}else e.pause();}});
     if(dots)[].forEach.call(dots.children,function(d,k){d.classList.toggle("on",k===n);});
     clearTimeout(tm);if(els.length>1&&els[n].tagName!=="VIDEO")tm=setTimeout(prox,5500);}
-  function prox(){i=(i+1)%els.length;mostra(i);}
+  function prox(){if(!els.length)return;i=(i+1)%els.length;mostra(i);}
+  function tira(e){var k=els.indexOf(e);if(k<0)return;els.splice(k,1);e.remove();if(dots&&dots.children[k])dots.children[k].remove();if(dots&&els.length<2){dots.remove();dots=null;}if(i>=els.length)i=0;if(els.length)mostra(i);}
   if(els.length){mostra(0);}
   if(els.length===1&&els[0].tagName==="VIDEO")els[0].loop=true;
   // [dia]: [nome, texto, fechamento em minutos após 00h do próprio dia]
