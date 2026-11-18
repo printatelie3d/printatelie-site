@@ -3,61 +3,120 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Rio Grande Bar e Restaurante</title>
-<meta name="description" content="Instagram, cardápio, reservas e avaliação do Rio Grande Bar e Restaurante.">
+<title>Rio Grande Bar e Restaurante · Ouroeste</title>
+<meta name="description" content="Chopp gelado, almoço e jantar em Ouroeste. Cardápio, reservas, horário e como chegar.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#B4502C">
+<meta name="theme-color" content="#1C1A16">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rio Grande Bar e Restaurante">
+<meta property="og:description" content="Chopp gelado, almoço e jantar em Ouroeste/SP. Cardápio, reservas e como chegar.">
+<meta property="og:image" content="https://printatelie.com.br/riogrande/og.jpg">
+<meta property="og:url" content="https://printatelie.com.br/riogrande/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--creme:#F1E9D8;--creme2:#E8DDC6;--terra:#B4502C;--terra2:#9A4224;--verde:#3F4C33;--verde2:#2F3A26;--txt:#2B2A26;--sub:#6E6658}
+:root{--creme:#F1E9D8;--creme2:#E6DAC2;--terra:#B4502C;--terra2:#8E3D20;--ouro:#E9B35A;--verde:#3F4C33;--verde2:#2C3623;--esc:#1C1A16;--txt:#2B2A26;--sub:#6E6658}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--creme);color:var(--txt);font-family:Poppins,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-body{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:0 16px}
-.aviso{width:100%;max-width:440px;margin-top:14px;background:#FFF6EC;border:1px dashed var(--terra);color:var(--terra2);font-size:12px;text-align:center;border-radius:10px;padding:7px 10px}
-.wrap{width:100%;max-width:440px;padding:22px 0 30px;display:flex;flex-direction:column;align-items:center}
-.logo{display:flex;flex-direction:column;align-items:center;font-family:"Russo One",sans-serif;line-height:.95;text-align:center}
-.l1{display:flex;align-items:flex-end;gap:2px;color:var(--terra);font-size:64px}
-.l1 svg{width:46px;height:96px;overflow:visible;margin:0 1px}
-.l2{color:var(--verde);font-size:47px;letter-spacing:.5px;margin-top:4px}
-.l3{color:var(--verde);font-size:14.5px;letter-spacing:1.2px;margin-top:6px}
+html{background:var(--esc)}
+body{background:var(--creme);color:var(--txt);font-family:Poppins,system-ui,sans-serif;-webkit-font-smoothing:antialiased;max-width:480px;margin:0 auto;min-height:100vh;overflow-x:hidden}
+a{color:inherit}
+/* HERO */
+.hero{position:relative;height:clamp(440px,92vw,520px);color:var(--creme);overflow:hidden;background:var(--esc)}
+.slides{position:absolute;inset:0}
+.slides>*{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;opacity:0;transform:scale(1.08);transition:opacity 1.2s ease,transform 7s ease-out;filter:saturate(.9)}
+.slides>.on{opacity:1;transform:scale(1)}
+.dots{position:absolute;bottom:8px;left:0;right:0;z-index:3;display:flex;justify-content:center;gap:6px}
+.dots i{width:6px;height:6px;border-radius:3px;background:rgba(241,233,216,.4);transition:width .3s,background .3s}
+.dots i.on{width:18px;background:var(--ouro)}
+@keyframes zoom{to{transform:scale(1)}}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,26,22,.25) 0%,rgba(28,26,22,.1) 30%,rgba(28,26,22,.78) 68%,var(--esc) 100%)}
+.status{position:absolute;top:16px;left:16px;z-index:2;display:flex;align-items:center;gap:8px;background:rgba(28,26,22,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(241,233,216,.18);padding:7px 12px;border-radius:999px;font-size:12.5px;font-weight:600}
+.status i{width:8px;height:8px;border-radius:50%;background:#7BC67E;box-shadow:0 0 0 0 rgba(123,198,126,.7);animation:pulse 1.8s infinite}
+.status.fechado i{background:#E07A5F;animation:none}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(123,198,126,0)}100%{box-shadow:0 0 0 0 rgba(123,198,126,0)}}
+.cidade{position:absolute;top:16px;right:16px;z-index:2;font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.85;padding-top:9px}
+.heroin{position:absolute;left:0;right:0;bottom:22px;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 16px}
+.logo{display:flex;flex-direction:column;align-items:center;font-family:"Russo One",sans-serif;line-height:.95;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.l1{display:flex;align-items:flex-end;gap:2px;color:var(--ouro);font-size:58px;text-shadow:0 4px 18px rgba(0,0,0,.45)}
+.l1 svg{width:42px;height:88px;overflow:visible;margin:0 1px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.4))}
+.l1 svg [stroke]{stroke:var(--ouro)} .l1 svg [fill="#B4502C"]{fill:var(--ouro)} .l1 svg [fill="#F1E9D8"]{fill:var(--esc)}
+.l2{color:var(--creme);font-size:43px;letter-spacing:.5px;margin-top:4px;text-shadow:0 4px 18px rgba(0,0,0,.45)}
+.l3{color:var(--creme);font-size:12.5px;letter-spacing:.32em;margin-top:9px;opacity:.9}
 .rotor{transform-origin:23px 14px;animation:gira 3.2s linear infinite}
-.logo:hover .rotor,.logo.sopro .rotor{animation-duration:.5s}
+.logo.sopro .rotor{animation-duration:.45s}
 @keyframes gira{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){.rotor{animation:none}}
-.slogan{margin:16px 0 22px;color:var(--sub);font-size:14px;text-align:center}
-.btns{width:100%;display:grid;gap:12px}
-.b{display:flex;align-items:center;gap:14px;width:100%;padding:15px 18px;border-radius:16px;text-decoration:none;font-weight:600;font-size:16px;color:#fff;background:var(--terra);box-shadow:0 3px 0 var(--terra2);transition:transform .12s,box-shadow .12s;cursor:pointer;border:0;font-family:inherit;text-align:left}
-.b:active{transform:translateY(3px);box-shadow:0 0 0 var(--terra2)}
-.b.v{background:var(--verde);box-shadow:0 3px 0 var(--verde2)}
-.b.v:active{box-shadow:0 0 0 var(--verde2)}
-.b.c{background:#fff;color:var(--txt);box-shadow:0 3px 0 var(--creme2);border:1px solid var(--creme2)}
-.b svg{width:24px;height:24px;flex:none}
-.b span{flex:1}
-.b small{display:block;font-weight:400;font-size:12.5px;opacity:.85;margin-top:1px}
-.b .seta{width:18px;height:18px;opacity:.7}
-.info{width:100%;margin-top:22px;background:#fff;border:1px solid var(--creme2);border-radius:16px;padding:16px 18px}
-.info h2{font-family:"Russo One",sans-serif;font-weight:400;color:var(--verde);font-size:16px;margin-bottom:10px}
-.hr{display:flex;justify-content:space-between;font-size:14px;padding:5px 0;border-bottom:1px solid #F1EBDF}
+.tag{margin-top:14px;font-size:14.5px;color:rgba(241,233,216,.9)}
+.tag b{color:var(--ouro);font-weight:600}
+/* CTA principal */
+.cta{background:var(--esc);padding:4px 16px 26px}
+.cta-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:9px;padding:15px 12px;border-radius:14px;font-weight:600;font-size:15px;text-decoration:none;transition:transform .12s}
+.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn.pri{background:var(--terra);color:#fff;box-shadow:0 8px 22px -8px rgba(180,80,44,.8)}
+.btn.sec{background:rgba(241,233,216,.08);color:var(--creme);border:1px solid rgba(241,233,216,.2)}
+/* seções */
+section{padding:26px 16px 4px}
+.sec-t{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+h2{font-family:"Russo One",sans-serif;font-weight:400;color:var(--verde);font-size:19px}
+.sec-t small{font-size:12px;color:var(--sub)}
+.dest{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.d{background:#fff;border:1px solid var(--creme2);border-radius:16px;padding:14px 10px 13px;text-align:center}
+.d .ic{width:42px;height:42px;margin:0 auto 8px;border-radius:12px;display:grid;place-items:center;background:var(--creme);color:var(--terra)}
+.d .ic svg{width:24px;height:24px}
+.d b{display:block;font-size:13.5px;font-weight:600;line-height:1.2}
+.d span{display:block;font-size:11.5px;color:var(--sub);margin-top:3px;line-height:1.3}
+.links{display:grid;gap:10px}
+.lk{display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border:1px solid var(--creme2);border-radius:16px;text-decoration:none;transition:transform .12s,box-shadow .12s}
+.lk:active{transform:scale(.985)}
+.lk .ic{width:44px;height:44px;flex:none;border-radius:12px;display:grid;place-items:center;color:#fff}
+.lk .ic svg{width:22px;height:22px}
+.lk div{flex:1}
+.lk b{display:block;font-size:15.5px;font-weight:600}
+.lk small{display:block;font-size:12.5px;color:var(--sub);margin-top:1px}
+.lk .seta{width:18px;height:18px;color:#B9AE99}
+.ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%)}
+.wa{background:#25D366}.mp{background:var(--verde)}.gg{background:#fff;border:1px solid var(--creme2)}
+/* avaliação */
+.rev{margin:0 16px;margin-top:22px;border-radius:20px;padding:20px 18px;background:linear-gradient(140deg,var(--verde),var(--verde2));color:var(--creme);position:relative;overflow:hidden}
+.rev:after{content:"★";position:absolute;right:-10px;top:-30px;font-size:150px;color:rgba(233,179,90,.12);line-height:1}
+.rev .st{color:var(--ouro);font-size:22px;letter-spacing:3px}
+.rev h3{font-family:"Russo One",sans-serif;font-weight:400;font-size:20px;margin:6px 0 4px}
+.rev p{font-size:13.5px;opacity:.85;max-width:290px}
+.rev a{display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:var(--ouro);color:var(--esc);font-weight:700;font-size:14px;padding:11px 16px;border-radius:12px;text-decoration:none;position:relative;z-index:1}
+/* horário */
+.card{background:#fff;border:1px solid var(--creme2);border-radius:18px;padding:6px 16px}
+.hr{display:flex;justify-content:space-between;font-size:14px;padding:10px 0;border-bottom:1px solid #F1EBDF}
 .hr:last-child{border:0}
-.hr b{font-weight:500}
-.hr.hoje{color:var(--terra);font-weight:600}
-.hr.hoje b{font-weight:600}
-.promo{width:100%;margin-top:14px;border-radius:16px;padding:16px 18px;background:linear-gradient(135deg,var(--verde),var(--verde2));color:var(--creme)}
-.promo b{font-family:"Russo One",sans-serif;font-weight:400;font-size:17px;display:block;margin-bottom:4px;color:#F7C873}
-.promo p{font-size:14px;opacity:.92}
-.rodape{margin-top:26px;font-size:12px;color:var(--sub);text-align:center;line-height:1.6}
-.rodape a{color:var(--terra);font-weight:600;text-decoration:none}
-.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,30px);opacity:0;background:var(--txt);color:#fff;font-size:13.5px;padding:11px 16px;border-radius:12px;max-width:calc(100% - 32px);text-align:center;transition:.25s;pointer-events:none}
-.toast.on{opacity:1;transform:translate(-50%,0)}
-.end{margin-top:12px;font-size:13px;color:#4a4438;line-height:1.6}.end a{color:inherit}
+.hr span{color:var(--sub)} .hr b{font-weight:500}
+.hr.hoje span,.hr.hoje b{color:var(--terra);font-weight:600}
+.turnos{display:flex;gap:8px;margin-bottom:10px}
+.turnos div{flex:1;background:#fff;border:1px solid var(--creme2);border-radius:12px;padding:9px 10px;font-size:12px;color:var(--sub)}
+.turnos b{display:block;color:var(--txt);font-size:14px}
+/* endereço */
+.addr{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--creme2);border-radius:18px;padding:14px 16px;text-decoration:none}
+.addr .pin{width:44px;height:44px;border-radius:50%;background:var(--terra);display:grid;place-items:center;flex:none;color:#fff}
+.addr .pin svg{width:22px;height:22px}
+.addr b{display:block;font-size:15px}.addr small{font-size:12.5px;color:var(--sub)}
+.tel{display:block;text-align:center;margin-top:12px;font-size:14px;color:var(--sub);text-decoration:none}
+.tel b{color:var(--txt)}
+footer{margin-top:30px;padding:22px 16px 30px;background:var(--esc);color:rgba(241,233,216,.6);font-size:12px;text-align:center;line-height:1.7}
+footer a{color:var(--ouro);font-weight:600;text-decoration:none}
+/* entrada */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rotor,.status i{animation:none}.slides>*{transition:opacity .4s}.rv{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
-<main class="wrap">
-  <div class="logo" id="logo" title="Sopra! (ou passa o dedo)">
-    <div class="l1">R
+<header class="hero">
+  <div class="slides" id="slides"></div>
+  <div class="status" id="status"><i></i><span>Carregando…</span></div>
+  <div class="cidade">Ouroeste · SP</div>
+  <div class="heroin">
+    <div class="logo" id="logo" title="Toque no catavento">
+      <div class="l1">R
       <svg viewBox="0 0 46 96" aria-hidden="true">
         <g stroke="#B4502C" stroke-width="2.6" fill="none" stroke-linecap="square">
           <path d="M8 96 L19 26 M38 96 L27 26"/>
@@ -73,56 +132,110 @@ body{min-height:100vh;display:flex;flex-direction:column;align-items:center;padd
           <use href="#pa" transform="rotate(292.5 23 14)"/><use href="#pa" transform="rotate(315 23 14)"/><use href="#pa" transform="rotate(337.5 23 14)"/>
           <circle cx="23" cy="14" r="3.6" fill="#B4502C"/><circle cx="23" cy="14" r="1.4" fill="#F1E9D8"/>
         </g>
-      </svg>O</div>
-    <div class="l2">GRANDE</div>
-    <div class="l3">BAR E RESTAURANTE</div>
+      </svg> O</div>
+      <div class="l2">GRANDE</div>
+      <div class="l3">BAR E RESTAURANTE</div>
+    </div>
+    <p class="tag"><b>Chopp trincando</b> · almoço e jantar</p>
   </div>
-  <p class="slogan">Que bom que você veio! Escolha aqui embaixo 👇</p>
+</header>
 
-  <nav class="btns">
-    <a class="b" href="https://www.instagram.com/riogrande.ouroeste/" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-      <span>Siga no Instagram<small>Fotos, eventos e novidades</small></span>
-      <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
-    <a class="b v" href="https://wa.me/5517997779677?text=Ol%C3%A1%21%20Peguei%20o%20chaveiro%20do%20Rio%20Grande.%20Pode%20me%20mandar%20o%20card%C3%A1pio%3F" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 3h11a3 3 0 013 3v15H8a3 3 0 01-3-3z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
-      <span>Ver o cardápio<small>Peça pelo WhatsApp</small></span>
-      <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
-    <a class="b" href="https://wa.me/5517997779677?text=Ol%C3%A1%21%20Peguei%20o%20chaveiro%20do%20Rio%20Grande%20e%20quero%20reservar%20uma%20mesa." target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 000-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.5-.3z"/></svg>
-      <span>Reservar mesa / pedir<small>Fale direto no WhatsApp</small></span>
-      <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
-    <a class="b v" href="https://www.google.com/search?q=Rio+Grande+Bar+e+Restaurante+Ouroeste#lrd=0x949841004d9a6b5f:0xdf9e82ffc30a5d07,3,,,," target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2 6.4 20.2l1.1-6.3L2.9 9.5l6.3-.9z"/></svg>
-      <span>Avalie a gente no Google<small>Leva 30 segundos ⭐⭐⭐⭐⭐</small></span>
-      <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
-    <a class="b c" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rio%20Grande%20Bar%20e%20Restaurante%2C%20Av.%20dos%20Bandeirantes%2C%202266%2C%20Ouroeste%20-%20SP" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#B4502C" stroke-width="2"><path d="M12 22s7-6.3 7-12a7 7 0 10-14 0c0 5.7 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
-      <span>Como chegar<small>Av. dos Bandeirantes, 2266</small></span>
-      <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
-  </nav>
+<div class="cta">
+  <div class="cta-row">
+    <a class="btn pri" href="https://wa.me/5517997779677?text=Ol%C3%A1%21%20Vim%20pelo%20chaveiro%20do%20Rio%20Grande.%20Pode%20me%20mandar%20o%20card%C3%A1pio%3F" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 3h11a3 3 0 013 3v15H8a3 3 0 01-3-3z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>Cardápio</a>
+    <a class="btn sec" href="https://wa.me/5517997779677?text=Ol%C3%A1%21%20Vim%20pelo%20chaveiro%20do%20Rio%20Grande%20e%20quero%20reservar%20uma%20mesa." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Reservar mesa</a>
+  </div>
+</div>
 
+<section class="rv">
+  <div class="sec-t"><h2>A casa</h2></div>
+  <div class="dest">
+    <div class="d"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h9v11a2 2 0 01-2 2H8a2 2 0 01-2-2z"/><path d="M15 10h2a2 2 0 012 2v3a2 2 0 01-2 2h-2"/><path d="M6 8a3 3 0 013-4 3 3 0 015 0 2.5 2.5 0 011 4"/></svg></div><b>Chopp</b><span>caneca congelada</span></div>
+    <div class="d"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="6"/><path d="M3 4v6a2 2 0 002 2M5 4v16M21 4c-1.5 0-2.5 2-2.5 5s1 4 2.5 4v7"/></svg></div><b>Almoço</b><span>10h30 às 14h</span></div>
+    <div class="d"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></div><b>Jantar</b><span>a partir das 18h</span></div>
+  </div>
+</section>
 
-  <section class="info">
-    <h2>Horário de funcionamento</h2>
-    <div id="horarios"></div>
-    <p class="end">📍 Av. dos Bandeirantes, 2266 – Ouroeste/SP<br>📞 <a href="tel:+5517997779677">(17) 99777-9677</a> · Almoço 10h30–14h · Jantar a partir das 18h</p>
-  </section>
+<section class="rv">
+  <div class="sec-t"><h2>Fale com a gente</h2></div>
+  <div class="links">
+    <a class="lk" href="https://wa.me/5517997779677?text=Ol%C3%A1%21%20Vim%20pelo%20chaveiro%20do%20Rio%20Grande." target="_blank" rel="noopener">
+      <span class="ic wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 000-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.5-.3z"/></svg></span>
+      <div><b>WhatsApp</b><small>Pedidos, reservas e dúvidas</small></div>
+      <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
+    <a class="lk" href="https://www.instagram.com/riogrande.ouroeste/" target="_blank" rel="noopener">
+      <span class="ic ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>
+      <div><b>Instagram</b><small>@riogrande.ouroeste</small></div>
+      <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
 
-  <p class="rodape">Você chegou aqui pelo chaveiro do Rio Grande 🌬️<br>
-  Chaveiro e página feitos por <a href="https://printatelie.com.br">Print Ateliê 3D</a></p>
-</main>
-<div class="toast" id="toast"></div>
+<div class="rev rv">
+  <div class="st">★★★★★</div>
+  <h3>Gostou? Conta pra gente!</h3>
+  <p>Sua avaliação no Google ajuda muito o Rio Grande. Leva só 30 segundos.</p>
+  <a href="https://www.google.com/search?q=Rio+Grande+Bar+e+Restaurante+Ouroeste#lrd=0x949841004d9a6b5f:0xdf9e82ffc30a5d07,3,,,," target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.5 12.3c0-.8-.1-1.5-.2-2.2H12v4.2h5.9a5 5 0 01-2.2 3.3v2.7h3.5c2.1-1.9 3.3-4.7 3.3-8z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.2-2.7l-3.5-2.7c-1 .7-2.2 1-3.7 1-2.9 0-5.3-1.9-6.2-4.5H2.2v2.8A11 11 0 0012 23z"/><path fill="#FBBC05" d="M5.8 14.1a6.6 6.6 0 010-4.2V7.1H2.2a11 11 0 000 9.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.2 1.7l3.1-3.1A11 11 0 002.2 7.1l3.6 2.8C6.7 7.3 9.1 5.4 12 5.4z"/></svg>
+    Avaliar no Google</a>
+</div>
+
+<section class="rv">
+  <div class="sec-t"><h2>Horário</h2><small id="hojeTxt"></small></div>
+  <div class="turnos"><div>Almoço<b>10h30 – 14h</b></div><div>Jantar<b>18h – fechamento</b></div></div>
+  <div class="card" id="horarios"></div>
+</section>
+
+<section class="rv">
+  <div class="sec-t"><h2>Onde estamos</h2></div>
+  <a class="addr" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rio%20Grande%20Bar%20e%20Restaurante%2C%20Av.%20dos%20Bandeirantes%2C%202266%2C%20Ouroeste%20-%20SP" target="_blank" rel="noopener">
+    <span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.3 7-12a7 7 0 10-14 0c0 5.7 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+    <div><b>Av. dos Bandeirantes, 2266</b><small>Ouroeste/SP · Toque para traçar a rota</small></div>
+  </a>
+  <a class="tel" href="tel:+5517997779677">📞 <b>(17) 99777-9677</b></a>
+</section>
+
+<footer>
+  Você chegou aqui pelo chaveiro do Rio Grande 🌬️<br>
+  Chaveiro NFC e página feitos por <a href="https://printatelie.com.br">Print Ateliê 3D</a>
+</footer>
+
 <script>
 (function(){
-  var H=[["Domingo","10h30–14h · 18h–00h"],["Segunda","10h30–14h · 18h–23h"],["Terça","10h30–14h · 18h–23h"],["Quarta","10h30–14h · 18h–23h"],["Quinta","10h30–14h · 18h–00h"],["Sexta","10h30–14h · 18h–00h"],["Sábado","10h30–14h · 18h–01h"]];
-  var hoje=new Date().getDay(),h="";
-  [1,2,3,4,5,6,0].forEach(function(i){h+='<div class="hr'+(i===hoje?' hoje':'')+'"><span>'+H[i][0]+(i===hoje?' (hoje)':'')+'</span><b>'+H[i][1]+'</b></div>';});
+  // FOTOS E VÍDEOS DO TOPO: é só acrescentar arquivos nesta lista (jpg/png ou mp4).
+  var MIDIA=[
+    {src:"chopp.jpg",alt:"Canecas de chopp congeladas no freezer do Rio Grande"}
+  ];
+  var box=document.getElementById("slides"),els=[],dots=null,i=0,tm;
+  MIDIA.forEach(function(m){var e;
+    if(/\.mp4$/i.test(m.src)){e=document.createElement("video");e.src=m.src;e.muted=true;e.playsInline=true;e.setAttribute("playsinline","");e.preload="auto";e.addEventListener("ended",prox);}
+    else{e=document.createElement("img");e.src=m.src;e.alt=m.alt||"";}
+    box.appendChild(e);els.push(e);});
+  if(els.length>1){dots=document.createElement("div");dots.className="dots";els.forEach(function(){dots.appendChild(document.createElement("i"));});document.querySelector(".hero").appendChild(dots);}
+  function mostra(n){els.forEach(function(e,k){e.classList.toggle("on",k===n);if(e.tagName==="VIDEO"){if(k===n){e.currentTime=0;var p=e.play();if(p&&p.catch)p.catch(function(){});}else e.pause();}});
+    if(dots)[].forEach.call(dots.children,function(d,k){d.classList.toggle("on",k===n);});
+    clearTimeout(tm);if(els.length>1&&els[n].tagName!=="VIDEO")tm=setTimeout(prox,5500);}
+  function prox(){i=(i+1)%els.length;mostra(i);}
+  if(els.length){mostra(0);}
+  if(els.length===1&&els[0].tagName==="VIDEO")els[0].loop=true;
+  // [dia]: [nome, texto, fechamento em minutos após 00h do próprio dia]
+  var H=[["Domingo","10h30–14h · 18h–00h",1440],["Segunda","10h30–14h · 18h–23h",1380],["Terça","10h30–14h · 18h–23h",1380],["Quarta","10h30–14h · 18h–23h",1380],["Quinta","10h30–14h · 18h–00h",1440],["Sexta","10h30–14h · 18h–00h",1440],["Sábado","10h30–14h · 18h–01h",1500]];
+  function hm(m){m=m%1440;var h=Math.floor(m/60),mi=m%60;return h+"h"+(mi?String(mi).padStart(2,"0"):"");}
+  var now=new Date(),d=now.getDay(),m=now.getHours()*60+now.getMinutes();
+  var h="";[1,2,3,4,5,6,0].forEach(function(i){h+='<div class="hr'+(i===d?' hoje':'')+'"><span>'+H[i][0]+(i===d?' · hoje':'')+'</span><b>'+H[i][1]+'</b></div>';});
   document.getElementById("horarios").innerHTML=h;
-  var t=document.getElementById("toast"),tm;
-  document.querySelectorAll("[data-msg]").forEach(function(a){a.href="#";a.addEventListener("click",function(e){e.preventDefault();t.textContent="Simulação: "+a.getAttribute("data-msg");t.classList.add("on");clearTimeout(tm);tm=setTimeout(function(){t.classList.remove("on");},2600);});});
-  var lg=document.getElementById("logo");
-  lg.addEventListener("click",function(){lg.classList.add("sopro");setTimeout(function(){lg.classList.remove("sopro");},1800);});
+  var ontem=(d+6)%7,txt,aberto=false;
+  if(H[ontem][2]>1440 && m<H[ontem][2]-1440){aberto=true;txt="Aberto agora · fecha às "+hm(H[ontem][2]);}
+  else if(m>=630&&m<840){aberto=true;txt="Aberto agora · almoço até 14h";}
+  else if(m>=1080&&m<H[d][2]){aberto=true;txt="Aberto agora · fecha às "+hm(H[d][2]);}
+  else if(m<630){txt="Fechado · abre hoje às 10h30";}
+  else if(m<1080){txt="Fechado · jantar a partir das 18h";}
+  else {txt="Fechado · abre amanhã às 10h30";}
+  var s=document.getElementById("status");s.querySelector("span").textContent=txt;if(!aberto)s.classList.add("fechado");
+  var lg=document.getElementById("logo");lg.addEventListener("click",function(){lg.classList.add("sopro");setTimeout(function(){lg.classList.remove("sopro");},1800);});
+  var io="IntersectionObserver" in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target);}});},{threshold:.12}):null;
+  document.querySelectorAll(".rv").forEach(function(el){io?io.observe(el):el.classList.add("on");});
 })();
 </script>
 </body>
