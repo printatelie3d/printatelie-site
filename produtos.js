@@ -69,12 +69,6 @@ window.PRODUTOS = [
     fotos: ["https://stlflix.b-cdn.net/Guardian_Angel_Table_Lamp_thumb_EN_641f3316f5.png?width=700"], links: { mercadolivre: "", shopee: "", tiktok: "" }
   },
   {
-    id: "presepio-iluminado", nome: "Presépio Iluminado", categoria: "Natal",
-    preco: "Pedir cotação", inclui: "luminária · vela LED", status: "encomenda", etiqueta: "",
-    descricao: "Cena do presépio recortada com luz por trás, que projeta sombras bonitas na parede.",
-    fotos: ["https://stlflix.b-cdn.net/Bright_Nativity_Table_Lampthumb_04c71c25a7.jpg?width=700"], links: { mercadolivre: "", shopee: "", tiktok: "" }
-  },
-  {
     id: "papai-noel-fofinho", nome: "Papai Noel Fofinho", categoria: "Natal",
     preco: "Pedir cotação", inclui: "decoração de mesa", status: "encomenda", etiqueta: "Em alta",
     descricao: "Papai Noel sentadinho, com barba texturizada e cores vivas. Fofo para estante e mesa.",
